@@ -44,4 +44,9 @@ app.post("/todo",async (req,res)=>{
 })
 
 
+app.get("/payload",(req,res)=>{
+
+    res.json({messages:20,jobs:4,network:10,profile:2})
+})
+
 app.listen(3000,()=>{console.log('Server is running on port 3000');})

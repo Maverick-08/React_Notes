@@ -1,5 +1,5 @@
 import React from 'react'
-import { RecoilRoot, useRecoilValue } from 'recoil'
+import { RecoilRoot, useRecoilState, useRecoilValue } from 'recoil'
 import { jobNotificationAtom, messageNotificationAtom, networkNotificationAtom, notificationSelector, profileAtom } from '../store/atoms/atoms2'
 import { useMemo } from 'react';
 
@@ -16,7 +16,6 @@ export default function Component2() {
 function MainComponent(){
     const networkCount = useRecoilValue(networkNotificationAtom);
     const jobCount = useRecoilValue(jobNotificationAtom)
-    const messageCount = useRecoilValue(messageNotificationAtom)
     const profileCount = useRecoilValue(profileAtom)
 
     // Collective notification count
@@ -32,9 +31,19 @@ function MainComponent(){
         <>
             <button>Network ({(networkCount >= 100)? "99+":networkCount})</button>
             <button>Jobs ({jobCount})</button>
-            <button>Message ({messageCount})</button>
-            <button>Notifications ({notificationCount})</button>
+            <Message />
+            <button>Notification ({notificationCount})</button>
             <button>Profile ({profileCount})</button>
+        </>
+    )
+}
+
+function Message(){
+    const [messageCount,setMessageCount] = useRecoilState(messageNotificationAtom)
+
+    return(
+        <>
+            <button onClick={()=>setMessageCount(x=>x+1)}>Message ({messageCount})</button>
         </>
     )
 }

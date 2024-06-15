@@ -14,7 +14,7 @@ import {
   useRecoilValue,
   useSetRecoilState,
 } from "recoil";
-import { countAtom, isEvenSelector } from "../store/atoms/count";
+import { countAtom, isEvenSelector } from "../store/atoms/atoms1";
 
 export default function Component1() {
   return (

@@ -32,8 +32,13 @@ function MainComponent() {
 function Message() {
   const [notifications, setNotifications] = useRecoilState(notificationsAtom);
 
+  function update(){
+    const newObj = {...notifications,messages:(notifications.messages+1)};
+    setNotifications(newObj);
+  }
+
   return (
-    <button>Message ({notifications.messages})</button>
+    <button onClick={update}>Message ({notifications.messages})</button>
   );
 }
 

@@ -4,7 +4,7 @@ import axios from 'axios';
 export const notificationsAtom = atom({
   key: 'notifications',
   default: selector({
-    key: 'notificationSelector',
+    key: 'NotificationSelector',
     get: async () => {
       try {
         const res = await axios.get('http://localhost:3000/payload');

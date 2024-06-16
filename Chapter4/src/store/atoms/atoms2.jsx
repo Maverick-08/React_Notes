@@ -21,7 +21,7 @@ export const profileAtom = atom({
 })
 
 export const notificationSelector = selector({
-    key:"",
+    key:"notificationSelector",
     get: ({get})=>{
         return (get(networkNotificationAtom)+get(jobNotificationAtom)+get(messageNotificationAtom)+get(profileAtom));
     }
